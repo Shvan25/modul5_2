@@ -66,6 +66,5 @@ class MainClass
         Console.WriteLine("Вот ваши любимые цвета: ");
         foreach (var fav in favcolor) { Console.WriteLine(fav); }
 
-
     }
 }
