@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var result = GetArrayFromConsole(5);
+        var result = GetArrayFromConsole(10);
 
         Console.WriteLine("Нужна ли сртировка массиву? (false/true)");
 
