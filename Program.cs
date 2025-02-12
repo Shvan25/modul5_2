@@ -4,11 +4,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        GetArrayFromConsole();
+        var result = GetArrayFromConsole(5);
+
+        Console.WriteLine("Нужна ли сртировка массиву? (false/true)");
+
+        bool sign = bool.Parse(Console.ReadLine());
+
+        ShowArray(result, sign);
     }
-    static int[] GetArrayFromConsole()
+
+    static int[] GetArrayFromConsole(int num = 5)
     {
-        var result = new int[5];
+        var result = new int[num];
 
         for (int i = 0; i < result.Length; i++)
         {
@@ -16,21 +23,7 @@ class Program
             result[i] = int.Parse(Console.ReadLine());
         }
 
-        int k = 0;
-        for (int i = 0; i < result.Length; i++)
-        {
-            for (int j = 0; j < result.Length; j++)
-            {
-                if (result[i] < result[j])
-                {
-                    k = result[i];
-                    result[i] = result[j];
-                    result[j] = k;
-                }
-            }
-
-        }
-
+        Console.WriteLine("Ваш массив:");
         for (int i = 0; i < result.Length; i++)
         {
             Console.WriteLine(result[i]);
@@ -38,4 +31,38 @@ class Program
 
         return result;
     }
-}
+    static void ShowArray(int[] array, bool sign = false)
+    {
+        var result = array;
+
+        if (sign)
+        {
+            result = SortArray(result);
+        }
+
+        Console.WriteLine("\nВаш массив:");
+        for (int i = 0; i < result.Length; i++)
+        {
+            Console.WriteLine(result[i]);
+        }
+    }
+    static int[] SortArray(int[] array)
+        {
+            int k = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array.Length; j++)
+                {
+                    if (array[i] < array[j])
+                    {
+                        k = array[i];
+                        array[i] = array[j];
+                        array[j] = k;
+                    }
+                }
+
+            }
+
+            return array;
+        }
+    }
